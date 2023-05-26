@@ -103,6 +103,16 @@ public class ManagerDictionary {
 	// delete an employee node from tree
 	
 	
+	
+	 // Find the minimum node in a subtree
+    private Node findMinimumNode(Node node) {
+        Node current = node;
+        while (current.getLeft() != null) {
+            current = current.getLeft();
+        }
+        return current;
+    }
+	
 	// search for employee 
 	
 	// modify an existing employee in the dictionary
