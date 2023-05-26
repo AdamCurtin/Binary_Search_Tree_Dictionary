@@ -7,7 +7,8 @@ Purpose: Represents an employee record with various attributes
 package binarySearchTreeDictionary;
 
 public class EmployeeObject {
-	private int empIDNumber;
+	// variables
+	private int numberID;
 	private String firstName;
 	private String lastName;
 	private String streetAddress;
@@ -17,6 +18,91 @@ public class EmployeeObject {
 	private String phoneNumber;
 	
 	
+	// Constructor
+	public EmployeeObject(int numberID, String firstName, String lastName, String streetAddress,
+			String city, int zipCode, String email, String phoneNumber) {
+		this.numberID = numberID;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.streetAddress = streetAddress;
+		this.city = city;
+		this.zipCode = zipCode;
+		this.email = email;
+		this.phoneNumber = phoneNumber;
+	}
+	
+	// Getters
+	public int getNumberID() {
+		return numberID;
+	}
+	
+	public String getFirstName() {
+		return firstName;
+	}
+	
+	public String getLastName() {
+		return lastName;
+	}
+	
+	public String getStreetAddress() {
+		return streetAddress;
+	}
+	
+	public String getCity() {
+		return city;
+	}
+	
+	public int getZipCode() {
+		return zipCode;
+	}
+	
+	public String getEmail() {
+		return email;
+	}
+	
+	public String getPhoneNumber() {
+		return phoneNumber;
+	}
+	// end getters
+	
+	// Setters
+	public void setNumberID(int numberID) {
+		this.numberID = numberID;
+	}
+	
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+	
+	public void setLastName(String lastName) {
+	    this.lastName = lastName;
+	}
+	
+	public void setStreetAddress(String streetAddress) {
+		this.streetAddress = streetAddress;
+	}
+	
+	public void setZipCode(int zipCode) {
+	    this.zipCode = zipCode;
+	}
+	
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
+	}
+	// end setters
+	
+	// to string method
+	public String toString() {
+		return "ID: " + numberID + "\n" +
+				"Name: " + firstName + " " + lastName + "\n" +
+				"Address: " + streetAddress + ", " + city + " " + zipCode + "\n" +
+				"Email: " + email + "\n" +				
+				"Phone: " + phoneNumber;
+	} // end toString
 	/*
 	 * Methods
 	 * Constructors: Initialize attributes of the employee object
