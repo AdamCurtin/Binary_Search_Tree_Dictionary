@@ -12,12 +12,10 @@ package binarySearchTreeDictionary;
 public class MainDictionaryUserInterface {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
-		/*
-		 * Gather user input for adding, deleting, searching, modifying
-		 * Print traversal by calling Manager Method
-		 */
-	}
-
-}
+		
+		ManagerDictionary dictionary = new ManagerDictionary();
+		
+		dictionary.menu();
+		
+	} // end main method
+} // end MainDictionaryUserInterface

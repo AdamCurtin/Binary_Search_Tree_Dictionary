@@ -1,6 +1,7 @@
 /*
-
-
+Programmers: Adam Curtin and Meghan Flaherty
+CS 145 Java
+Date: 5/25/2023
 Purpose: Represents an employee record with various attributes
 */
 
@@ -21,6 +22,12 @@ public class EmployeeObject {
 	// Constructor
 	public EmployeeObject(int numberID, String firstName, String lastName, String streetAddress,
 			String city, int zipCode, String email, String phoneNumber) {
+		 if (numberID < 0) {
+	            throw new IllegalArgumentException("Number ID must be non-negative.");
+	        }
+	        if (zipCode < 0) {
+	            throw new IllegalArgumentException("Zip code must be non-negative.");
+	        }
 		this.numberID = numberID;
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -103,12 +110,5 @@ public class EmployeeObject {
 				"Email: " + email + "\n" +				
 				"Phone: " + phoneNumber;
 	} // end toString
-	/*
-	 * Methods
-	 * Constructors: Initialize attributes of the employee object
-	 * Getters and setters: access and modify the attributes of the employee object
-	 * toString() convert employee object to a string representation.
-	 */
-	
-	
-}
+		
+} // end EmployeeObject Class
