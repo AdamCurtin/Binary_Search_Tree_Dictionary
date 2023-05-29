@@ -1,26 +1,22 @@
-/*
-Programmers: Adam Curtin and Meghan Flaherty
-CS 145 Java
-Date: 5/25/2023
-Purpose: Represents an employee record with various attributes
-*/
 
-package binarySearchTreeDictionary;
 
-public class EmployeeObject {
-	// variables
-	private int numberID;
-	private String firstName;
-	private String lastName;
+
+// package BinarySearchTree;
+
+
+
+public class EmployeeObject extends MainDirectoryUserInterface{
+    
+    private int numberID;
+    private String firstName;
+    private String lastName;
 	private String streetAddress;
 	private String city;
 	private int zipCode;
 	private String email;
 	private String phoneNumber;
-	
-	
-	// Constructor
-	public EmployeeObject(int numberID, String firstName, String lastName, String streetAddress,
+
+    public EmployeeObject(int numberID, String firstName, String lastName, String streetAddress,
 			String city, int zipCode, String email, String phoneNumber) {
 		 if (numberID < 0) {
 	            throw new IllegalArgumentException("Number ID must be non-negative.");
@@ -106,7 +102,7 @@ public class EmployeeObject {
 	public String toString() {
 		return "ID: " + numberID + "\n" +
 				"Name: " + firstName + " " + lastName + "\n" +
-				"Address: " + streetAddress + ", " + city + " " + zipCode + "\n" +
+				"Address: " + streetAddress + ", " + city + ", " + zipCode + "\n" +
 				"Email: " + email + "\n" +				
 				"Phone: " + phoneNumber;
 	} // end toString
