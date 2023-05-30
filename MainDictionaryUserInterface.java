@@ -5,13 +5,13 @@
 //package BinarySearchTree;
 
 
-public class MainDirectoryUserInterface {
+public class MainDictionaryUserInterface {
 
     public static void main(String[] args) {
         
         ManagerDictionary dictionary = new ManagerDictionary();
 
-        dictionary.menu();
+        dictionary.artThing();
 
     }
 }

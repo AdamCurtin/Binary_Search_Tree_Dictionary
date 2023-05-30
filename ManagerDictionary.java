@@ -62,11 +62,12 @@ public class ManagerDictionary extends MainDictionaryUserInterface {
         ManagerDictionary() {
         root = null;
         } 
+ 
 
     // Menu to handle user input
     public void menu() {
 
-        artThing();
+        
         
     Scanner scanner = new Scanner(System.in);
     
@@ -567,6 +568,6 @@ public class ManagerDictionary extends MainDictionaryUserInterface {
         System.out.println("         ) (   |    / |   _)  |   _)   ");
         System.out.println("        (___)  |_\\__\\ |_____) |_____) ");
         System.out.println();
-        
+        menu();
     }
 } // end ManagerDictionary Class
