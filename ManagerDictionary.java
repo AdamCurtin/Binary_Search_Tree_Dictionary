@@ -70,7 +70,8 @@ public class ManagerDictionary extends MainDirectoryUserInterface{
         System.out.println("2. Delete Employee");
         System.out.println("3. Lookup Employees");
         System.out.println("4. Modify Employee");
-        System.out.println("5. Exit");
+        System.out.println("5. Find Employee");
+        System.out.println("6. Exit");
         System.out.print("Enter your choice: ");
          
             String menuChoice = scanner.nextLine();
@@ -89,6 +90,8 @@ public class ManagerDictionary extends MainDirectoryUserInterface{
                      runModifyEmployee();
                      break;
                  case "5":
+                     runFindEmployee();
+                 case "6":
                      System.exit(0);
                      break;
                  default:
@@ -122,6 +125,17 @@ public class ManagerDictionary extends MainDirectoryUserInterface{
         scanner.close();
     } // end runDeleteEmployee
 
+    public void runFindEmployee() {
+        Scanner input = new Scanner(System.in);
+
+        System.out.print("Enter the ID number for the employee you wish to find: ");
+        int findID = Integer.parseInt(input.nextLine());
+
+        EmployeeObject employeeFound = gatherEmployeeInfo();
+
+        findEmployee(findID, employeeFound);
+
+    }
 
     // Method to handle the "Modify Employee" menu option
     public void runModifyEmployee() {
@@ -277,7 +291,18 @@ public class ManagerDictionary extends MainDirectoryUserInterface{
         return current;
     } // end findMinimumNode
 
-    
+    public void findEmployee(int findID, EmployeeObject employeeFound) {
+        Node currentNode = root;
+
+        while (currentNode != null) {
+            if (currentNode.getEmployee().getNumberID() == EmployeeObject(NumberID)) {
+                System.out.println(currentNode.getEmployee().toString());
+            }
+        }
+        
+
+    }
+
     // modify an existing employee in the dictionary
     public void modifyEmployee(int NumberID, EmployeeObject newEmployee) {
         Node currentNode = root;
