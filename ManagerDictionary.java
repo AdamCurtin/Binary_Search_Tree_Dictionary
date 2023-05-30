@@ -68,13 +68,13 @@ public class ManagerDictionary extends MainDictionaryUserInterface{
         System.out.println("----- Employee Dictionary Menu -----");
         System.out.println("1. Add Employee");
         System.out.println("2. Delete Employee");
-        System.out.println("3. Lookup Employees");
+        System.out.println("3. View Employees");
         System.out.println("4. Modify Employee");
         System.out.println("5. Find Employee");
         System.out.println("6. Exit");
         System.out.print("Enter your choice: ");
          
-            String menuChoice = scanner.nextLine();
+        String menuChoice = scanner.nextLine();
          
             switch (menuChoice) {
                  case "1":
@@ -84,7 +84,7 @@ public class ManagerDictionary extends MainDictionaryUserInterface{
                      runDeleteEmployee();
                      break;
                  case "3":
-                     LookupEmployees();
+                     viewEmployees();
                      break;
                  case "4":
                      runModifyEmployee();
@@ -129,6 +129,7 @@ public class ManagerDictionary extends MainDictionaryUserInterface{
     public void runFindEmployee() {
         Scanner input = new Scanner(System.in);
 
+        // create int for finding correct node with corresponding ID number
         System.out.print("Enter the ID number for the employee you wish to find: ");
         int findID = Integer.parseInt(input.nextLine());
 
@@ -202,9 +203,6 @@ public class ManagerDictionary extends MainDictionaryUserInterface{
         }
 
      } // end while
-
-        
-
     } // end addEmployee method
     
     // Delete an employee from the dictionary
@@ -341,7 +339,7 @@ public class ManagerDictionary extends MainDictionaryUserInterface{
     } // end modifyEmployee
 
     // deciding traversal order for employee lookup
-    public void LookupEmployees() {
+    public void viewEmployees() {
         Scanner scanner = new Scanner(System.in);
     
         // Prompt user to select order type
@@ -357,13 +355,13 @@ public class ManagerDictionary extends MainDictionaryUserInterface{
         // Perform lookup based on choice
         switch (lookupChoice) {
             case "1":
-                preOrderTraversal(root, scanner);
+                preOrderTraversal(root);
                 break;
             case "2":
-                inOrderTraversal(root, scanner);
+                inOrderTraversal(root);
                 break;
             case "3":
-                postOrderTraversal(root, scanner);
+                postOrderTraversal(root);
                 break;
             default:
                 System.out.println("Invalid order specified");
@@ -375,16 +373,12 @@ public class ManagerDictionary extends MainDictionaryUserInterface{
 
 
     // Pre-order traversal
-    public void preOrderTraversal(Node root, Scanner scanner) {
-        
+    public void preOrderTraversal(Node root) {
         
         // if root is null, return
         if (root == null) {
             return;	
         }
-        System.out.println("please input the employee ID number of the employee " +
-        "you would like to find");
-        int searchID = scanner.nextInt();
         System.out.println();
 
         // push root node onto the stack
@@ -414,14 +408,12 @@ public class ManagerDictionary extends MainDictionaryUserInterface{
     } // end preOrderTraversal
 
     // In-order Traversal
-    public void inOrderTraversal(Node root, Scanner scanner) {
+    public void inOrderTraversal(Node root) {
         // if root is null, return
         if (root == null) {
             return;
         }
-        System.out.println("please input the employee ID number of the employee " +
-        "you would like to find");
-        int searchID = scanner.nextInt();
+
         System.out.println();
 
         // set initial reference point to root node
@@ -447,14 +439,12 @@ public class ManagerDictionary extends MainDictionaryUserInterface{
         } // end inOrderTraversal
 
     // post-order Traversal
-    public void postOrderTraversal(Node root, Scanner scanner) {
+    public void postOrderTraversal(Node root) {
         // if root is null, return
         if (root == null) {
             return;
         }
-        System.out.println("please input the employee ID number of the employee " +
-        "you would like to find");
-        int searchID = scanner.nextInt();
+    
         System.out.println();
 
         // use two stacks. Push root node onto stack1 then in a loop pop node from stack1 and push onto stack2
@@ -482,7 +472,6 @@ public class ManagerDictionary extends MainDictionaryUserInterface{
             System.out.println(node.getEmployee());
             System.out.println();
         }
-
         menu();
     } // end postOrderTraversal
 
