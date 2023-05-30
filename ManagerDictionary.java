@@ -208,6 +208,7 @@ public class ManagerDictionary extends MainDictionaryUserInterface{
     
     // Delete an employee from the dictionary
     public void deleteEmployee(int numberID) {
+        Scanner in = new Scanner(System.in);
         Node currentNode = root;
         Node parentNode = null;
         boolean isLeftChild = false;
@@ -223,9 +224,28 @@ public class ManagerDictionary extends MainDictionaryUserInterface{
                 currentNode = currentNode.getRight();
                 isLeftChild = false;
          } else {
+
+            System.out.println("This is the contact to be deleted: ");
+            System.out.println();
+            System.out.println(currentNode.getEmployee().toString());
+            System.out.println();
+            System.out.println("Are you sure you want to delete this employee contact?");
+            System.out.println("y/n");
+
+           
+            String delete = in.nextLine();
+                
+            if (delete.toLowerCase().equals("n")) {
+                    menu();
+                }
+
+
+
                 break;
             }
         }
+
+
         // check if the node was found
         if (currentNode == null) {
             System.out.println("Employee with the specified ID not found");
@@ -413,7 +433,6 @@ public class ManagerDictionary extends MainDictionaryUserInterface{
         }
 
         System.out.println();
-
         // set initial reference point to root node
         Stack<Node> stack = new Stack<>();
         Node currentNode = root;
