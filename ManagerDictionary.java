@@ -6,7 +6,7 @@
 import java.util.Scanner;
 import java.util.Stack;
 
-public class ManagerDictionary extends MainDirectoryUserInterface{
+public class ManagerDictionary extends MainDictionaryUserInterface{
     
     private class Node {
         private EmployeeObject employee;
@@ -125,17 +125,15 @@ public class ManagerDictionary extends MainDirectoryUserInterface{
         scanner.close();
     } // end runDeleteEmployee
 
+    // Method to handle the "Find Employee" menu option
     public void runFindEmployee() {
         Scanner input = new Scanner(System.in);
 
         System.out.print("Enter the ID number for the employee you wish to find: ");
         int findID = Integer.parseInt(input.nextLine());
 
-        EmployeeObject employeeFound = gatherEmployeeInfo();
-
-        findEmployee(findID, employeeFound);
-
-    }
+        findEmployee(findID);
+    } // end runFindEmployee
 
     // Method to handle the "Modify Employee" menu option
     public void runModifyEmployee() {
@@ -291,17 +289,30 @@ public class ManagerDictionary extends MainDirectoryUserInterface{
         return current;
     } // end findMinimumNode
 
-    public void findEmployee(int findID, EmployeeObject employeeFound) {
+    public void findEmployee(int findID) {
         Node currentNode = root;
 
         while (currentNode != null) {
-            if (currentNode.getEmployee().getNumberID() == EmployeeObject(NumberID)) {
-                System.out.println(currentNode.getEmployee().toString());
-            }
-        }
-        
+            if (findID < currentNode.getEmployee().getNumberID()) {
+                //Traverse to left child
+                currentNode = currentNode.getLeft();
+            } else if (findID > currentNode.getEmployee().getNumberID()) {
+                // Traverse to right child
+                currentNode = currentNode.getRight();
+            } else {
 
-    }
+                // employee found using ID
+                System.out.println();
+                System.out.println("Employee found!");
+                System.out.println();
+                System.out.println(currentNode.getEmployee().toString());
+                System.out.println();
+
+                menu();
+                return;
+            } // end else 
+        }
+    } // end findEmployee
 
     // modify an existing employee in the dictionary
     public void modifyEmployee(int NumberID, EmployeeObject newEmployee) {
