@@ -109,18 +109,18 @@ public class ManagerDictionary extends MainDictionaryUserInterface{
             addEmployee(newEmployee);
         } else { 
             System.out.println("Invalid employee information entered.");	
-        } // end if else
+        } 
     } // end runAddEmployee
 
     // Method to handle the "Delete Employee" menu option
     public void runDeleteEmployee() {
         Scanner scanner = new Scanner(System.in);
     
-        // Prompt User for ID
+        // get user ID
         System.out.print("Enter the Employee ID to delete: ");
         int deleteID = Integer.parseInt(scanner.nextLine());
     
-        // Delete the employee with the specified ID
+        // delete the employee with the specified ID
         deleteEmployee(deleteID);
         scanner.close();
     } // end runDeleteEmployee
@@ -140,14 +140,14 @@ public class ManagerDictionary extends MainDictionaryUserInterface{
     public void runModifyEmployee() {
         Scanner scanner = new Scanner(System.in);
     
-        // Prompt User to enter ID to modify
+        // enter ID to modify
         System.out.print("Enter the Employee ID to modify: ");
         int modifyID = Integer.parseInt(scanner.nextLine());
     
-        // Gather info for the modified employee
+        // get info for the new modified employee
         EmployeeObject modifiedEmployee = gatherEmployeeInfo();
     
-        // Modify the employee with the specified ID
+        // modify the employee
         modifyEmployee(modifyID, modifiedEmployee);
         scanner.close();
     } // end runModifyEmployee
@@ -188,6 +188,7 @@ public class ManagerDictionary extends MainDictionaryUserInterface{
                     currentNode.setRight(new Node(employee));
                     System.out.println();
                     System.out.println("Employee added successfully!");
+                    System.out.println();
                     menu();
                     return;
              } // end if right is null
@@ -228,6 +229,7 @@ public class ManagerDictionary extends MainDictionaryUserInterface{
         // check if the node was found
         if (currentNode == null) {
             System.out.println("Employee with the specified ID not found");
+            System.out.println();
             return;
         }
 
@@ -271,21 +273,11 @@ public class ManagerDictionary extends MainDictionaryUserInterface{
         deleteEmployee(successor.getEmployee().getNumberID());
         }
 
+        System.out.println();
         System.out.println("Employee deleted successfully!");
+        System.out.println();
         menu();
     } // end deleteEmployee
-
-    // Find the minimum node in a subtree
-    public Node findMinimumNode(Node node) {
-    Node current = node;
-    
-        // traverse to the leftmost node in the subtree
-        while (current.getLeft() != null) {
-            current = current.getLeft();
-        }
-        // return the minimum node
-        return current;
-    } // end findMinimumNode
 
     public void findEmployee(int findID) {
         Node currentNode = root;
@@ -310,6 +302,12 @@ public class ManagerDictionary extends MainDictionaryUserInterface{
                 return;
             } // end else 
         }
+        System.out.println();
+        System.out.println("There is no employee matching the input ID number");
+        System.out.println("Please try again using an ID number that is currently in use");
+        System.out.println();
+        menu();
+
     } // end findEmployee
 
     // modify an existing employee in the dictionary
@@ -335,6 +333,7 @@ public class ManagerDictionary extends MainDictionaryUserInterface{
     
         // Employee with the specified ID not found
         System.out.println("Employee with specified ID not found");
+        System.out.println();
         menu();
     } // end modifyEmployee
 
@@ -365,6 +364,7 @@ public class ManagerDictionary extends MainDictionaryUserInterface{
                 break;
             default:
                 System.out.println("Invalid order specified");
+                System.out.println();
                 break;
         } // end switch lookUpChoice
     
@@ -475,6 +475,18 @@ public class ManagerDictionary extends MainDictionaryUserInterface{
         menu();
     } // end postOrderTraversal
 
+    // Find the minimum node in a subtree
+    public Node findMinimumNode(Node node) {
+        Node current = node;
+    
+        // traverse to the leftmost node in the subtree
+        while (current.getLeft() != null) {
+            current = current.getLeft();
+        }
+        // return the minimum node
+        return current;
+    } // end findMinimumNode
+
     // Method to gather user input for employee info and Create Employee Object
     public EmployeeObject gatherEmployeeInfo() {
         Scanner scanner = new Scanner(System.in);
@@ -507,7 +519,9 @@ public class ManagerDictionary extends MainDictionaryUserInterface{
             return new EmployeeObject(numberID, firstName, lastName, streetAddress, city,
                                     zipCode, email, phoneNumber);
         } catch (NumberFormatException e) {
+        System.out.println();
         System.out.println("Invalid input format for ID or Zip Code. Please enter numeric values.");
+        System.out.println();
         }
         return null;
     } // end gatherEmployeeInfo
