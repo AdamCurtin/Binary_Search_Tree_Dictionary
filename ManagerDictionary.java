@@ -394,8 +394,6 @@ public class ManagerDictionary extends MainDictionaryUserInterface{
            
              if (node.getRight() != null) {
                 stack.push(node.getRight());
-                System.out.println(node.getEmployee());
-                System.out.println();
             } 
         
             if (node.getLeft() != null) {
@@ -522,6 +520,7 @@ public class ManagerDictionary extends MainDictionaryUserInterface{
         System.out.println();
         System.out.println("Invalid input format for ID or Zip Code. Please enter numeric values.");
         System.out.println();
+        menu();
         }
         return null;
     } // end gatherEmployeeInfo
