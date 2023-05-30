@@ -293,12 +293,15 @@ public class ManagerDictionary extends MainDirectoryUserInterface{
                 // Employee with Specified ID found
                 currentNode.setEmployee(newEmployee);
                 System.out.println("Employee modified successfully!");
+                System.out.println();
+                menu();
                 return;
             } // end else
         } // end while current node isn't null
     
         // Employee with the specified ID not found
         System.out.println("Employee with specified ID not found");
+        menu();
     } // end modifyEmployee
 
     // deciding traversal order for employee lookup
@@ -306,9 +309,7 @@ public class ManagerDictionary extends MainDirectoryUserInterface{
         Scanner scanner = new Scanner(System.in);
     
         // Prompt user to select order type
-       
-
-
+        System.out.println();
         System.out.println("Select the order to lookup employees:");
         System.out.println("1. Pre-order");
         System.out.println("2. In-order");
