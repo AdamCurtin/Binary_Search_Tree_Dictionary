@@ -5,8 +5,11 @@
 
 import java.util.Scanner;
 import java.util.Stack;
+import java.util.Arrays;
+import java.io.BufferedReader;
+import java.io.Graphics;
 
-public class ManagerDictionary extends MainDictionaryUserInterface{
+public class ManagerDictionary extends MainDictionaryUserInterface {
     
     private class Node {
         private EmployeeObject employee;
@@ -62,6 +65,8 @@ public class ManagerDictionary extends MainDictionaryUserInterface{
 
     // Menu to handle user input
     public void menu() {
+
+        artThing();
         
     Scanner scanner = new Scanner(System.in);
     
@@ -544,4 +549,24 @@ public class ManagerDictionary extends MainDictionaryUserInterface{
         return null;
     } // end gatherEmployeeInfo
 
+    // method for art cover
+    public void artThing() {
+
+        System.out.println(" _____   __   ___ ___   __   ______   __  __");
+        System.out.println("|  _  ) (  ) |   )  |  / _\\  |  _  \\ (  \\/  )");
+        System.out.println("|  _ (  |  | |      | /    \\ |     /  )    /");
+        System.out.println("|_____) (__) |__)___|/__/\\__\\|__\\__)  (___/");
+        System.out.println();
+        System.out.println(" _____  _____    __    ____   ____   _   _ ");
+        System.out.println("/  ___) | ___)  /_ \\  |  _ \\ /  __) | |_| | ");
+        System.out.println("\\___  \\ |  _)  /    \\ |    /(  (__  |  _  | ");
+        System.out.println("(_____/ |____)/__/\\__\\|_\\__\\ \\____) |_| |_|");
+        System.out.println();
+        System.out.println("        _____   ____   _____   _____ ");
+        System.out.println("       (_   _) |  _ \\ |  ___) |  ___) ");
+        System.out.println("         ) (   |    / |   _)  |   _)   ");
+        System.out.println("        (___)  |_\\__\\ |_____) |_____) ");
+        System.out.println();
+        
+    }
 } // end ManagerDictionary Class
